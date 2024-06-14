@@ -1,16 +1,10 @@
 from fastapi import FastAPI
-from Controller.registers_controllers import *
+from Routes.routes_tranlation import router as translation_router
+import uvicorn
 
 app = FastAPI()
 
-insert_register = InsertRegister()
-get_register = GetRegisters()
-search_register_by_name = SearchRegisterByName()
+app.include_router(translation_router)
 
-
-app.include_router(insert_register.to_router())
-app.include_router(get_register.to_router())
-app.include_router(get_register.to_router())
-
-
-
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1", port=8000)

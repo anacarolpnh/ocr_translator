@@ -1,0 +1,50 @@
+# API Tradutor de PDF
+
+## Descrição
+Este projeto demonstra a criação de uma API RESTful para tradução de textos extraídos de PDFs, utilizando o padrão MVC, boas práticas de programação e o banco de dados Atlas. A API segue os princípios CRUD (Criar, Ler, Atualizar e Excluir) e permite o envio de arquivos PDF para tradução, armazenamento das informações no banco de dados e geração de arquivos de texto com a tradução.
+
+## Funcionalidades Principais
+Criar (POST): Envia um arquivo PDF para tradução. A API extrai o texto do PDF, traduz para o idioma especificado e armazena as informações no banco de dados:
+    ID: Gerado automaticamente
+    Nome: Nome do arquivo PDF
+    PDF: Arquivo PDF em binário (armazenado no GridFS)
+    Data e Hora: Data e hora da tradução
+    Tradução: Arquivo de texto com a tradução
+Ler (GET): Recupera uma tradução específica por ID ou lista todas as traduções.
+Atualizar (PUT): Atualiza os dados de uma tradução existente, incluindo o arquivo PDF e a tradução.
+Excluir (DELETE): Remove uma tradução do banco de dados e o arquivo PDF associado.
+
+## Tecnologias Utilizadas
+Linguagem: Python
+Framework: FastAPI
+Padrão de Arquitetura: MVC
+Banco de Dados: MongoDB (AsyncIOMotorClient)
+Bibliotecas:
+httpcore: Requisições HTTP assíncronas
+httpx: Cliente HTTP assíncrono de alto nível
+googletrans: Tradução de texto
+google-trans-ocr: Reconhecimento óptico de caracteres (OCR)
+PyPDF2: Extração de texto de PDFs
+AsyncIOMotorClient: Cliente assíncrono para MongoDB
+
+## Estrutura do Projeto
+O código é organizado em pastas separadas por funcionalidade, seguindo as melhores práticas de organização e legibilidade. As principais pastas são:
+controllers: Contém as classes de controlador do FastAPI que manipulam as requisições HTTP.
+db: Contém as classes de acesso ao banco de dados MongoDB.
+models: Define os modelos de dados que representam as entidades armazenadas no banco de dados.
+routes: Configura as rotas da API e mapeia as rotas aos controladores.
+schemas: Define os esquemas JSON para validação de entrada e saída da API.
+services: Contém as classes de serviço que encapsulam a lógica de negócio da aplicação, como tradução, OCR e armazenamento de dados.
+utils: Contém funções auxiliares para tarefas como manipulação de arquivos e formatação de dados.
+
+## Instalação
+Instruções para configurar o ambiente de desenvolvimento e instalar dependências.
+
+### Pré-requisitos
+- Python;
+- FasApi;
+- httpx;
+- googletrans;
+- google-trans-ocr;
+- MongoDB;
+- PyPDF2.
